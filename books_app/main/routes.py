@@ -14,14 +14,12 @@ main = Blueprint("main", __name__)
 #           Routes                       #
 ##########################################
 
-
 @main.route('/')
 def homepage():
     all_books = Book.query.all()
     all_users = User.query.all()
     return render_template('home.html',
         all_books=all_books, all_users=all_users)
-
 
 @main.route('/create_book', methods=['GET', 'POST'])
 @login_required
